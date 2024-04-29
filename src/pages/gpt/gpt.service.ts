@@ -6,7 +6,7 @@ type props = {
 };
 const htmlGenerator = ({ name }: props) => {
   return `
-    Responda em pt-br, create simple page html to response, no comments, no explain.
+    Responda em pt-br, create simple page html to response, use same style, no comments, no explain.
     Eu tenho um curso de informática básica onde eu ensino ${name} em português.
     Crie uma dica.
     exemple:
@@ -22,15 +22,15 @@ const htmlGenerator = ({ name }: props) => {
         }    
         .card {
             width: 320px;
-            border: 1px solid #ccc;
-            border-radius: 10px;           
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);                  
+            height: 350px;
+            border: 1px solid #ccc;                               
             background-size: cover;
             background-position: center;
             color: white;
         }
         .view {
             width: 320px;
+            height: 350px;
             background-color: rgba(0, 0, 0, 0.5);               
         }     
         h1 {              
@@ -56,18 +56,17 @@ const htmlGenerator = ({ name }: props) => {
             word-wrap: break-word;
             text-height: 1.5;                      
         }
-
     </style>
 </head>
 <body>
     <div class="card">
-    <div class="view">
-        <h1>${name}</h1>          
-        <h2>{dica}</h2>
-        <ol>
-            <li>{passo a passo}</li>
-        </ol>
-    </div>
+        <div class="view">
+            <h1>${name}</h1>          
+            <h2>{dica}</h2>
+            <ol>
+                <li>{passo a passo}</li>
+            </ol>
+        </div>
     </div>
 </body>
 </html>

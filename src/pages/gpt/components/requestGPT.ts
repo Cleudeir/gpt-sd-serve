@@ -10,7 +10,25 @@ type Props = {
 };
 
 function extractCodeFromTripleBackticks(inputString: string) {
-  const regex = /```(javascript|jsx|ts|html)([\s\S]+?)```/g;
+  let regex = /```(javascript|jsx|ts|html|^\s)([\s\S]+?)```/g;
+  let result = "";
+  let match;
+
+  while ((match = regex.exec(inputString)) !== null) {
+    result += match[2];
+  }
+  if (result === "") {
+    result = inputString;
+  }
+  if (result.includes("```")) {
+    result = extractCodeFromTriple(inputString);
+  }
+
+  return result;
+}
+
+function extractCodeFromTriple(inputString: string) {
+  let regex = /``` ```/g;
   let result = "";
   let match;
 
